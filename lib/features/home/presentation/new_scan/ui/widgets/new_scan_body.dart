@@ -1,4 +1,6 @@
+import 'package:BrainScopeAI/features/home/presentation/new_scan/controller/new_scan_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class NewScanBody extends StatelessWidget {
@@ -6,6 +8,7 @@ class NewScanBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ScannerController());
     return Row(
       spacing: 20,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -13,6 +16,7 @@ class NewScanBody extends StatelessWidget {
         GestureDetector(
           onTap: () {
             Feedback.forTap(context);
+            controller.pickAndCropImageFromGallery();
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +35,7 @@ class NewScanBody extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Feedback.forTap(context);
+            // Feedback.forTap(context);
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +48,10 @@ class NewScanBody extends StatelessWidget {
                 fit: BoxFit.contain,
                 animate: true, // Reactive animation state
               ),
-              Text('Camera Scan')
+              Text(
+                'Camera Scan',
+                style: TextStyle(color: Colors.grey),
+              )
             ],
           ),
         ),
