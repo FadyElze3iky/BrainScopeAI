@@ -19,23 +19,18 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            FutureBuilder(
-              future: Future.delayed(Duration(seconds: 2)),
-              builder: (context, snapshot) {
-                Future.delayed(Duration(seconds: 2));
-                return Container(
-                  child: Lottie.asset(
-                    'assets/gifs/brain_logo.json',
-                    frameRate: FrameRate(120),
-                    width: 120,
-                    height: 120,
-                    fit: BoxFit.contain,
-                    animate: true, // Reactive animation state
-                    onLoaded: (composition) {},
-                  ),
-                );
+            Container(
+                child: Lottie.asset(
+              'assets/gifs/brain_logo.json',
+              frameRate: FrameRate(120),
+              width: 120,
+              height: 120,
+              fit: BoxFit.contain,
+              animate: true, // Reactive animation state
+              onLoaded: (composition) async {
+                await Future.delayed(Duration(seconds: 2));
               },
-            ),
+            )),
             Obx(
               () => controller.showText.value
                   ? Container(
