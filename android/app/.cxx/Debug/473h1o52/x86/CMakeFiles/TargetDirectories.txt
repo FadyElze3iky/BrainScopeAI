@@ -1,0 +1,2 @@
+D:/For Studing/Flutter 2/BrainScopeAI/android/app/.cxx/Debug/473h1o52/x86/CMakeFiles/edit_cache.dir
+D:/For Studing/Flutter 2/BrainScopeAI/android/app/.cxx/Debug/473h1o52/x86/CMakeFiles/rebuild_cache.dir

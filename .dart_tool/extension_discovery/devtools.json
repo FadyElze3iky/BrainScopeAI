@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "entries": [
+        {
+            "package": "BrainScopeAI",
+            "rootUri": "../",
+            "packageUri": "lib/"
+        }
+    ]
+}
