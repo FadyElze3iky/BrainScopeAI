@@ -8,6 +8,6 @@ import 'package:tflite_flutter/tflite_flutter.dart';
 abstract class HomeRepo {
   Future<Interpreter> loadModel(String modelPath);
   Future<File> pickImage(ImageSource source);
-  Future<String> runInference(XFile image, Interpreter model);
+  Future<Map<String, String>> runInference(XFile image, Interpreter model);
   Future<void> saveResult(ResultEntity result, Box<ResultEntity> box);
 }

@@ -168,7 +168,8 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<String> runInference(XFile image, Interpreter model) async {
+  Future<Map<String, String>> runInference(
+      XFile image, Interpreter model) async {
     // Load and preprocess image
     final inputImage = img.decodeImage(await image.readAsBytes())!;
     final resizedImage = img.copyResize(inputImage, width: 244, height: 244);
@@ -200,10 +201,13 @@ class HomeRepoImpl implements HomeRepo {
       final maxIndex = output[0].indexOf(maxScore);
 
       // ['Mild Demented', 'Moderate Demented', 'Non Demented', 'Very MildDemented']
-
-      return 'Class: $maxIndex, Confidence: ${(maxScore * 100).toStringAsFixed(2)}%';
+      model.close();
+      return {
+        'class': maxIndex.toString(),
+        'confidence': '${(maxScore * 100).toStringAsFixed(2)}%'
+      };
     } catch (e) {
-      return 'Error running inference: $e';
+      throw (Exception('Error running inference: $e'));
     }
   }
 

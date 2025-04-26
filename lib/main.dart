@@ -1,14 +1,23 @@
+import 'package:BrainScopeAI/features/home/domain/entity/result_entity.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:BrainScopeAI/core/theme/app_theme.dart';
-import 'package:BrainScopeAI/features/home/presentation/home_screen/ui/home_screen.dart';
-import 'package:BrainScopeAI/features/home/presentation/new_scan/ui/new_scan_screen.dart';
+import 'package:BrainScopeAI/features/home/presentation/ui/home_screen/home_screen.dart';
+import 'package:BrainScopeAI/features/home/presentation/ui/new_scan/new_scan_screen.dart';
 import 'package:BrainScopeAI/features/setting/presentation/ui/widgets/setting_screen.dart';
 import 'package:BrainScopeAI/features/splash/presentation/UI/splash_screen.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(ResultEntityAdapter());
+  if (!await Hive.boxExists('main')) {
+    await Hive.openBox<ResultEntity>('main');
+  }
+
   runApp(DevicePreview(
     enabled: true,
     builder: (context) => MyApp(),
