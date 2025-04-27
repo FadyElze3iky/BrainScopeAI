@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import 'package:image_picker/image_picker.dart';
 part 'result_entity.g.dart';
 
 @HiveType(typeId: 0)
@@ -13,6 +12,12 @@ class ResultEntity extends HiveObject {
   @HiveField(2)
   String createdAt;
 
+  @HiveField(3)
+  String? title;
+
   ResultEntity(
-      {required this.img, required this.result, required this.createdAt});
+      {required this.img,
+      required this.result,
+      required this.createdAt,
+      required this.title});
 }

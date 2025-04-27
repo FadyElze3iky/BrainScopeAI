@@ -29,6 +29,7 @@ class ScannerController extends GetxController {
   late Box<ResultEntity> box;
   var entityList = [].obs;
   var dataExist = false.obs;
+  var title = ''.obs;
   @override
   void onInit() async {
     super.onInit();
@@ -38,6 +39,7 @@ class ScannerController extends GetxController {
     runInferenceUc = RunInferenceUc(homeRepo: homeRepo);
     loadModelUc = LoadModelUc(homeRepo: homeRepo);
     saveResultUc = SaveResultUc(homeRepo: homeRepo);
+    getAllEntities();
   }
 
   Future<void> pickImage() async {
@@ -85,17 +87,22 @@ class ScannerController extends GetxController {
     String formattedDate = formatter.format(now);
 
     ResultEntity resultEntity = ResultEntity(
-        img: await XFile(image.value.path).readAsBytes(),
-        result: result,
-        createdAt: formattedDate);
+      img: await XFile(image.value.path).readAsBytes(),
+      result: result,
+      createdAt: formattedDate,
+      title: title.value,
+    );
     return resultEntity;
   }
 
-  void saveRsult() async {
+  Future<void> saveRsult() async {
     try {
       ResultEntity result = await _createRsultEntity();
       await saveResultUc.execute(result, box);
       Get.back();
+      Get.back();
+      getAllEntities();
+      deleteChanges();
     } catch (e) {
       Get.showSnackbar(GetSnackBar(
         message: e.toString(),
@@ -103,11 +110,19 @@ class ScannerController extends GetxController {
     }
   }
 
-  void getAllEntities() async {
-    await Future.delayed(Duration(seconds: 2));
-    if (box.values.isNotEmpty) {
-      dataExist.value = true;
-    }
-    entityList.value = box.values.toList();
+  void getAllEntities() {
+    entityList.value = [];
+
+    entityList.value = box.values.toList().reversed.toList();
+  }
+
+  void deleteChanges() {
+    image.value = File('');
+    toggleAnimation.value = false;
+    resultClass.value = '';
+    resultConfidance.value = '';
+    title.value = '';
+    buttonVisibaliy.value = true;
+    showResult.value = false;
   }
 }

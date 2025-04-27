@@ -1,7 +1,10 @@
 import 'package:BrainScopeAI/features/home/domain/entity/result_entity.dart';
+import 'package:BrainScopeAI/features/home/presentation/controller/new_scan_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:BrainScopeAI/features/home/presentation/ui/home_screen/widgets/home_list/list_item.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/utils.dart';
 
 class SlidableItem extends StatelessWidget {
   const SlidableItem({super.key, required this.entity});
@@ -9,6 +12,7 @@ class SlidableItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<ScannerController>();
     return Slidable(
       // Specify a key if the Slidable is dismissible.
       key: const ValueKey(0),
@@ -25,7 +29,10 @@ class SlidableItem extends StatelessWidget {
         children: [
           // A SlidableAction can have an icon and/or a label.
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              entity.delete();
+              controller.getAllEntities();
+            },
             backgroundColor: Color(0xFFFE4A49),
             foregroundColor: Colors.white,
             icon: Icons.delete,
@@ -34,23 +41,11 @@ class SlidableItem extends StatelessWidget {
         ],
       ),
 
-      // The end action pane is the one at the right or the bottom side.
-      endActionPane: ActionPane(
-        motion: ScrollMotion(),
-        children: [
-          SlidableAction(
-            onPressed: (context) {},
-            backgroundColor: Color(0xFF21B7CA),
-            foregroundColor: Colors.white,
-            icon: Icons.share,
-            label: 'Share',
-          ),
-        ],
-      ),
-
       // The child of the Slidable is what the user sees when the
       // component is not dragged.
-      child: ListItem(),
+      child: ListItem(
+        entity: entity,
+      ),
     );
   }
 }

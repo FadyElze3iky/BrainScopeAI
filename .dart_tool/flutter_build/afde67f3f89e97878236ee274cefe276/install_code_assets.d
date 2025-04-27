@@ -1,0 +1,1 @@
+ D:\\For\ Studing\\Flutter\ 2\\BrainScopeAI\\.dart_tool\\flutter_build\\afde67f3f89e97878236ee274cefe276\\native_assets.json: 

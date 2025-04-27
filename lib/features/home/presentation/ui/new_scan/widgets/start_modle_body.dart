@@ -9,8 +9,6 @@ class StartModleBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<ScannerController>();
-    controller.toggleAnimation.value = false;
-    controller.buttonVisibaliy.value = true;
     return SizedBox(
       width: double.infinity,
       child: Column(

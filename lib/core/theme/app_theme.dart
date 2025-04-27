@@ -33,8 +33,14 @@ ThemeData appTheme() {
           fontWeight: FontWeight.bold),
       bodyMedium: TextStyle(
           fontSize: 18, color: Color(0xFF666666), fontFamily: 'Rubik'),
+      bodySmall: TextStyle(
+          fontSize: 16,
+          color: Color.fromARGB(255, 94, 94, 94),
+          fontFamily: 'Rubik'),
       labelSmall: TextStyle(
-          fontSize: 16, color: Color(0xFF666666), fontFamily: 'Rubik'),
+          fontSize: 14,
+          color: Color.fromARGB(255, 88, 88, 88),
+          fontFamily: 'Rubik'),
     ),
 
     // Button theme

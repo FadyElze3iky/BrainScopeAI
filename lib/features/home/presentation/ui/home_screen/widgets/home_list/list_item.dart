@@ -1,7 +1,11 @@
+import 'dart:typed_data';
+
+import 'package:BrainScopeAI/features/home/domain/entity/result_entity.dart';
 import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {
-  const ListItem({super.key});
+  const ListItem({super.key, required this.entity});
+  final ResultEntity entity;
 
   @override
   Widget build(BuildContext context) {
@@ -24,28 +28,21 @@ class ListItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
-            radius: 40,
-            foregroundImage: NetworkImage(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW3bfcB9RpimzFiFmo9RINkTPhCKMVrK_LJw&s'),
-          ),
+              radius: 40,
+              foregroundImage: MemoryImage(Uint8List.fromList(entity.img))),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('List Item Title',
+                Text(entity.title ?? 'unknowen',
                     style: Theme.of(context).textTheme.bodyLarge),
-                Text('This is a description of the list item.',
-                    style: Theme.of(context).textTheme.bodyMedium),
+                Text(entity.result,
+                    style: Theme.of(context).textTheme.bodySmall),
+                Text(entity.createdAt,
+                    style: Theme.of(context).textTheme.labelSmall),
               ],
             ),
-          ),
-          IconButton(
-            onPressed: () {
-              // Action when button is pressed
-              print('Button pressed!');
-            },
-            icon: Icon(Icons.arrow_forward_ios_rounded),
           ),
         ],
       ),

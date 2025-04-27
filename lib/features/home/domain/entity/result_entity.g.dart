@@ -20,19 +20,22 @@ class ResultEntityAdapter extends TypeAdapter<ResultEntity> {
       img: fields[0] as List<int>,
       result: fields[1] as String,
       createdAt: fields[2] as String,
+      title: fields[3] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, ResultEntity obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.img)
       ..writeByte(1)
       ..write(obj.result)
       ..writeByte(2)
-      ..write(obj.createdAt);
+      ..write(obj.createdAt)
+      ..writeByte(3)
+      ..write(obj.title);
   }
 
   @override

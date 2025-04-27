@@ -15,6 +15,12 @@ class NewScanScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('New Scan'),
+          leading: IconButton(
+              onPressed: () {
+                controller.deleteChanges();
+                Get.back();
+              },
+              icon: Icon(Icons.arrow_back_ios_new_rounded)),
           actions: [
             Obx(
               () {
@@ -23,7 +29,38 @@ class NewScanScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: IconButton(
                         onPressed: () {
-                          controller.saveRsult();
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text(
+                                'Add title',
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              content: TextField(
+                                autofocus: true,
+                                onChanged: (value) {
+                                  controller.title.value = value;
+                                },
+                                decoration: InputDecoration(
+                                  label: Text('title'),
+                                ),
+                              ),
+                              actions: [
+                                IconButton(
+                                    onPressed: () async {
+                                      if (controller.title.value.isNotEmpty) {
+                                        await controller.saveRsult();
+                                      }
+                                    },
+                                    icon: Text(
+                                      'save',
+                                      style: TextStyle(
+                                          color:
+                                              Theme.of(context).primaryColor),
+                                    ))
+                              ],
+                            ),
+                          );
                         },
                         icon: Text(
                           'Save',
