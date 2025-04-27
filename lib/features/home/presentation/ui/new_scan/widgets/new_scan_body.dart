@@ -32,7 +32,7 @@ class NewScanBody extends StatelessWidget {
                     fit: BoxFit.contain,
                     animate: true, // Reactive animation state
                   ),
-                  Text('From Gallery')
+                  Text('From Gallery'.tr)
                 ],
               ),
             ),
@@ -52,7 +52,7 @@ class NewScanBody extends StatelessWidget {
                     animate: true, // Reactive animation state
                   ),
                   Text(
-                    'Camera Scan',
+                    'Camera Scan'.tr,
                     style: TextStyle(color: Colors.grey),
                   )
                 ],

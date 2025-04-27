@@ -18,11 +18,12 @@ class StartModleBody extends StatelessWidget {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                    blurRadius: 20,
-                    blurStyle: BlurStyle.normal,
-                    color: const Color.fromARGB(255, 157, 157, 157),
-                    offset: Offset(10, 2),
-                    spreadRadius: 2),
+                  color: const Color.fromARGB(
+                      45, 0, 0, 0), // Shadow color with opacity
+                  spreadRadius: 0, // Spread of the shadow
+                  blurRadius: 20, // Blur effect
+                  offset: const Offset(15, 15), // Shadow position (bottom)
+                ),
               ],
             ),
             child: ClipRRect(
@@ -59,16 +60,33 @@ class StartModleBody extends StatelessWidget {
               );
             } else {
               return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: 30,
                   ),
                   if (controller.showResult.value)
-                    Text(
-                        "Class: ${ResultToText.fromIndex(controller.resultClass.value).toString()}"),
+                    ResultToText.fromIndex(controller.resultClass.value) !=
+                            ResultToText.error
+                        ? Text(
+                            "Class: ${ResultToText.fromIndex(controller.resultClass.value).toString().tr}"
+                                .tr)
+                        : Text(
+                            ResultToText.fromIndex(controller.resultClass.value)
+                                .toString()
+                                .tr,
+                            style: TextStyle(color: Colors.red),
+                          ),
                   if (controller.showResult.value)
-                    Text("Confidence: ${controller.resultConfidance.value}"),
+                    if (ResultToText.fromIndex(controller.resultClass.value) !=
+                        ResultToText.error)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Confidence:".tr),
+                          Text(controller.resultConfidance.value),
+                        ],
+                      )
                 ],
               );
             }
@@ -84,7 +102,8 @@ enum ResultToText {
   mildDemented,
   moderateDemented,
   nonDemented,
-  veryMildDemented;
+  veryMildDemented,
+  error;
 
   @override
   String toString() {
@@ -97,6 +116,8 @@ enum ResultToText {
         return 'Non Demented';
       case ResultToText.veryMildDemented:
         return 'Very Mild Demented';
+      case ResultToText.error:
+        return "The confidence under 95% \nTry again with clear Brain MRI";
     }
   }
 
@@ -111,8 +132,9 @@ enum ResultToText {
         return ResultToText.nonDemented;
       case '3':
         return ResultToText.veryMildDemented;
+
       default:
-        throw RangeError('Invalid index: $index');
+        return ResultToText.error;
     }
   }
 }

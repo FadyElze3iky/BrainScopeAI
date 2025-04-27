@@ -204,7 +204,8 @@ class HomeRepoImpl implements HomeRepo {
       model.close();
       return {
         'class': maxIndex.toString(),
-        'confidence': '${(maxScore * 100).toStringAsFixed(2)}%'
+        'confidence': '${(maxScore * 100).toStringAsFixed(2)}%',
+        'persent': (maxScore * 100).toStringAsFixed(2).toString()
       };
     } catch (e) {
       throw (Exception('Error running inference: $e'));

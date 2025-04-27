@@ -14,7 +14,7 @@ class NewScanScreen extends StatelessWidget {
       top: false,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('New Scan'),
+          title: Text('New Scan'.tr),
           leading: IconButton(
               onPressed: () {
                 controller.deleteChanges();
@@ -33,16 +33,26 @@ class NewScanScreen extends StatelessWidget {
                             context: context,
                             builder: (context) => AlertDialog(
                               title: Text(
-                                'Add title',
-                                style: Theme.of(context).textTheme.bodyLarge,
+                                'Add title'.tr,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(
+                                        color: Theme.of(context).primaryColor),
                               ),
                               content: TextField(
                                 autofocus: true,
                                 onChanged: (value) {
                                   controller.title.value = value;
                                 },
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor),
                                 decoration: InputDecoration(
-                                  label: Text('title'),
+                                  label: Text(
+                                    'title'.tr,
+                                    style: TextStyle(
+                                        color: Theme.of(context).primaryColor),
+                                  ),
                                 ),
                               ),
                               actions: [
@@ -53,7 +63,7 @@ class NewScanScreen extends StatelessWidget {
                                       }
                                     },
                                     icon: Text(
-                                      'save',
+                                      'Save'.tr,
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor),
@@ -63,7 +73,7 @@ class NewScanScreen extends StatelessWidget {
                           );
                         },
                         icon: Text(
-                          'Save',
+                          'Save'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge!

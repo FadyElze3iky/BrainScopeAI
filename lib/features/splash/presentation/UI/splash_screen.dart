@@ -18,6 +18,7 @@ class SplashScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
+          textDirection: TextDirection.ltr,
           children: [
             Container(
                 child: Lottie.asset(
@@ -39,8 +40,8 @@ class SplashScreen extends StatelessWidget {
                             30), // Rounded corners for the container
                         boxShadow: [
                           BoxShadow(
-                            color: const Color.fromARGB(255, 228, 228,
-                                228), // Shadow color with opacity
+                            color: const Color.fromARGB(
+                                10, 0, 0, 0), // Shadow color with opacity
                             spreadRadius: -5, // Spread of the shadow
                             blurRadius: 15, // Blur effect
                             offset:
@@ -50,15 +51,14 @@ class SplashScreen extends StatelessWidget {
                       ),
                       child: AnimatedTextKit(
                         animatedTexts: [
-                          TypewriterAnimatedText(
-                            'BrainScope AI',
-                            textStyle: Theme.of(context)
-                                .textTheme
-                                .headlineLarge!
-                                .copyWith(
-                                    color: Theme.of(context).primaryColor),
-                            speed: const Duration(milliseconds: 100),
-                          ),
+                          TypewriterAnimatedText('BrainScope AI',
+                              textStyle: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge!
+                                  .copyWith(
+                                      color: Theme.of(context).primaryColor),
+                              speed: const Duration(milliseconds: 100),
+                              cursor: ''),
                         ],
                         totalRepeatCount: 1,
                       ),

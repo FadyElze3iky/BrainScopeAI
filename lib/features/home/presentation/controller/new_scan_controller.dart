@@ -8,6 +8,7 @@ import 'package:BrainScopeAI/features/home/domain/usecase/pick_img_uc.dart';
 import 'package:BrainScopeAI/features/home/domain/usecase/run_inference_uc.dart';
 import 'package:BrainScopeAI/features/home/domain/usecase/save_result_uc.dart';
 import 'package:BrainScopeAI/features/home/presentation/ui/new_scan/widgets/start_modle_body.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
@@ -61,9 +62,19 @@ class ScannerController extends GetxController {
     try {
       final result =
           await runInferenceUc.execute(XFile(image.value.path), model);
+      if (double.parse(result['persent']!) > 95) {
+        resultClass.value = result['class']!;
+        resultConfidance.value = result['confidence']!;
+      } else {
+        resultClass.value = '4';
+        resultConfidance.value = result['confidence']!;
 
-      resultClass.value = result['class']!;
-      resultConfidance.value = result['confidence']!;
+        Get.showSnackbar(GetSnackBar(
+          message:
+              "The confidence under 95% \nTry again with clear Brain MRI".tr,
+          backgroundColor: Colors.red,
+        ));
+      }
     } catch (e) {
       Get.showSnackbar(GetSnackBar(
         message: e.toString(),

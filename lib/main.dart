@@ -1,12 +1,14 @@
 import 'package:BrainScopeAI/features/home/domain/entity/result_entity.dart';
 import 'package:BrainScopeAI/features/home/presentation/controller/new_scan_controller.dart';
+import 'package:BrainScopeAI/features/setting/presentation/controller/app_translations.dart';
+import 'package:BrainScopeAI/features/setting/presentation/controller/setting_controller.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:BrainScopeAI/core/theme/app_theme.dart';
 import 'package:BrainScopeAI/features/home/presentation/ui/home_screen/home_screen.dart';
 import 'package:BrainScopeAI/features/home/presentation/ui/new_scan/new_scan_screen.dart';
-import 'package:BrainScopeAI/features/setting/presentation/ui/widgets/setting_screen.dart';
+import 'package:BrainScopeAI/features/setting/presentation/ui/setting_screen.dart';
 import 'package:BrainScopeAI/features/splash/presentation/UI/splash_screen.dart';
 import 'package:hive_flutter/adapters.dart';
 
@@ -30,17 +32,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ScannerController());
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-      theme: appTheme(),
-      initialRoute: '/splash',
-      getPages: [
-        GetPage(name: '/splash', page: () => const SplashScreen()),
-        GetPage(name: '/home', page: () => const HomeScreen()),
-        GetPage(name: '/setting', page: () => const SettingScreen()),
-        GetPage(name: '/NewScanScreen', page: () => const NewScanScreen()),
-      ],
-    );
+    final settingController = Get.put(SettingsController());
+    return Obx(() {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+        theme: appThemeLight(),
+        locale: Locale(settingController.currentLocale.value),
+        darkTheme: appThemeDark(),
+        themeMode: settingController.getCurrentTheme(),
+        initialRoute: '/splash',
+        translations: AppTranslations(),
+        getPages: [
+          GetPage(name: '/splash', page: () => const SplashScreen()),
+          GetPage(name: '/home', page: () => const HomeScreen()),
+          GetPage(name: '/setting', page: () => const SettingScreen()),
+          GetPage(name: '/NewScanScreen', page: () => const NewScanScreen()),
+        ],
+      );
+    });
   }
 }

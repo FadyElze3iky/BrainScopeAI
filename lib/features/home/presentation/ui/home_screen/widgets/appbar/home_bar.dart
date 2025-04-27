@@ -10,7 +10,7 @@ class HomeBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      title: const Text('Home'),
+      title: Text('Home'.tr),
       automaticallyImplyLeading: false,
       actions: <Widget>[
         IconButton(
@@ -18,7 +18,7 @@ class HomeBar extends StatelessWidget {
           onPressed: () {
             Get.toNamed('/setting');
           },
-          tooltip: 'Settings',
+          tooltip: 'Settings'.tr,
         ),
       ],
       floating: true,
@@ -47,10 +47,11 @@ class HomeBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               boxShadow: [
                 BoxShadow(
-                  color: const Color.fromARGB(137, 175, 175, 175),
-                  blurRadius: 10.0,
-                  spreadRadius: 5.0,
-                  offset: Offset(4, 10),
+                  color: const Color.fromARGB(
+                      45, 0, 0, 0), // Shadow color with opacity
+                  spreadRadius: 0, // Spread of the shadow
+                  blurRadius: 20, // Blur effect
+                  offset: const Offset(15, 15), // Shadow position (bottom)
                 ),
               ]),
           child: ElevatedButton(
@@ -70,7 +71,7 @@ class HomeBar extends StatelessWidget {
                       height: 50,
                     ),
                     Text(
-                      'New Scan',
+                      'New Scan'.tr,
                       style: Theme.of(context)
                           .textTheme
                           .bodyLarge!
