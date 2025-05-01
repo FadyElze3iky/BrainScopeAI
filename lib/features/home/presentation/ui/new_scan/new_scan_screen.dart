@@ -25,61 +25,68 @@ class NewScanScreen extends StatelessWidget {
             Obx(
               () {
                 if (controller.showResult.value) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: IconButton(
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: Text(
-                                'Add title'.tr,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(
-                                        color: Theme.of(context).primaryColor),
-                              ),
-                              content: TextField(
-                                autofocus: true,
-                                onChanged: (value) {
-                                  controller.title.value = value;
-                                },
-                                style: TextStyle(
-                                    color: Theme.of(context).primaryColor),
-                                decoration: InputDecoration(
-                                  label: Text(
-                                    'title'.tr,
-                                    style: TextStyle(
-                                        color: Theme.of(context).primaryColor),
-                                  ),
+                  if (controller.persent.value > 95.0) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: IconButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: Text(
+                                  'Add title'.tr,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge!
+                                      .copyWith(
+                                          color:
+                                              Theme.of(context).primaryColor),
                                 ),
-                              ),
-                              actions: [
-                                IconButton(
-                                    onPressed: () async {
-                                      if (controller.title.value.isNotEmpty) {
-                                        await controller.saveRsult();
-                                      }
-                                    },
-                                    icon: Text(
-                                      'Save'.tr,
+                                content: TextField(
+                                  autofocus: true,
+                                  onChanged: (value) {
+                                    controller.title.value = value;
+                                  },
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor),
+                                  decoration: InputDecoration(
+                                    label: Text(
+                                      'title'.tr,
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor),
-                                    ))
-                              ],
-                            ),
-                          );
-                        },
-                        icon: Text(
-                          'Save'.tr,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(color: Theme.of(context).primaryColor),
-                        )),
-                  );
+                                    ),
+                                  ),
+                                ),
+                                actions: [
+                                  IconButton(
+                                      onPressed: () async {
+                                        if (controller.title.value.isNotEmpty) {
+                                          await controller.saveRsult();
+                                        }
+                                      },
+                                      icon: Text(
+                                        'Save'.tr,
+                                        style: TextStyle(
+                                            color:
+                                                Theme.of(context).primaryColor),
+                                      ))
+                                ],
+                              ),
+                            );
+                          },
+                          icon: Text(
+                            'Save'.tr,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(
+                                    color: Theme.of(context).primaryColor),
+                          )),
+                    );
+                  } else {
+                    return SizedBox();
+                  }
                 } else {
                   return SizedBox();
                 }

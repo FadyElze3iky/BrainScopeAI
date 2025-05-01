@@ -1,5 +1,6 @@
 import 'package:BrainScopeAI/features/home/domain/entity/result_entity.dart';
 import 'package:BrainScopeAI/features/home/presentation/controller/new_scan_controller.dart';
+import 'package:BrainScopeAI/features/intro/presentation/ui/intro_screen.dart';
 import 'package:BrainScopeAI/features/setting/presentation/controller/app_translations.dart';
 import 'package:BrainScopeAI/features/setting/presentation/controller/setting_controller.dart';
 import 'package:device_preview/device_preview.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/home', page: () => const HomeScreen()),
           GetPage(name: '/setting', page: () => const SettingScreen()),
           GetPage(name: '/NewScanScreen', page: () => const NewScanScreen()),
+          GetPage(name: '/IntroductionScreen', page: () => const IntroScreen()),
         ],
       );
     });

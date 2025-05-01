@@ -38,7 +38,11 @@ class NewScanBody extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                // Feedback.forTap(context);
+                Get.showSnackbar(GetSnackBar(
+                  message: 'The scan feature is not supported yet.',
+                  duration: Duration(seconds: 2),
+                  backgroundColor: const Color.fromARGB(144, 23, 88, 227),
+                ));
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

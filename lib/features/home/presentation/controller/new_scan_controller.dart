@@ -31,6 +31,7 @@ class ScannerController extends GetxController {
   var entityList = [].obs;
   var dataExist = false.obs;
   var title = ''.obs;
+  var persent = 0.0.obs;
   @override
   void onInit() async {
     super.onInit();
@@ -49,6 +50,8 @@ class ScannerController extends GetxController {
     } catch (e) {
       Get.showSnackbar(GetSnackBar(
         message: e.toString(),
+        duration: Duration(seconds: 2),
+        backgroundColor: const Color.fromARGB(144, 244, 67, 54),
       ));
     }
   }
@@ -65,19 +68,24 @@ class ScannerController extends GetxController {
       if (double.parse(result['persent']!) > 95) {
         resultClass.value = result['class']!;
         resultConfidance.value = result['confidence']!;
+        persent.value = double.parse(result['persent']!);
       } else {
         resultClass.value = '4';
         resultConfidance.value = result['confidence']!;
+        persent.value = double.parse(result['persent']!);
 
         Get.showSnackbar(GetSnackBar(
           message:
               "The confidence under 95% \nTry again with clear Brain MRI".tr,
-          backgroundColor: Colors.red,
+          backgroundColor: const Color.fromARGB(144, 244, 67, 54),
+          duration: Duration(seconds: 2),
         ));
       }
     } catch (e) {
       Get.showSnackbar(GetSnackBar(
         message: e.toString(),
+        duration: Duration(seconds: 2),
+        backgroundColor: const Color.fromARGB(144, 244, 67, 54),
       ));
     }
   }
@@ -117,6 +125,8 @@ class ScannerController extends GetxController {
     } catch (e) {
       Get.showSnackbar(GetSnackBar(
         message: e.toString(),
+        duration: Duration(seconds: 2),
+        backgroundColor: const Color.fromARGB(144, 244, 67, 54),
       ));
     }
   }
