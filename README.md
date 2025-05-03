@@ -75,16 +75,16 @@ Developed by [fady elzeeky]
 🌐 [https://www.linkedin.com/in/fady-saied-334b29218/]
 
 ## 📸 Screenshots
-
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/3c5d8768-5a13-4f3a-b2b5-46c9c4b00fff" width="200"/>
-  <img src="https://github.com/user-attachments/assets/b8ab8de9-2243-4e2d-a527-fb63336a93a4" width="200"/>
-  <img src="https://github.com/user-attachments/assets/b26629c9-a4d9-4753-9485-3580f7def364" width="200"/>
-  <img src="https://github.com/user-attachments/assets/e2b61e73-4eef-4bb4-8bdb-546264b5baa0" width="200"/>
-  <img src="https://github.com/user-attachments/assets/f3474cbd-8e94-4cf5-ae01-f3064f7f0d5f" width="200"/>
-  <img src="https://github.com/user-attachments/assets/c1555ba8-c2f4-487a-a035-840e3b74c3f3" width="200"/>
-  <img src="https://github.com/user-attachments/assets/b040e4b3-e0c3-4096-a283-19d3a3abcc54" width="200"/>
-  <img src="https://github.com/user-attachments/assets/a8eb9db4-1e0a-4efa-9e63-09a366150ee4" width="200"/>
-  <img src="https://github.com/user-attachments/assets/4bd1eb2c-a280-44e0-855f-718d54ee6bfb" width="200"/>
+  <img src="https://github.com/user-attachments/assets/6b0b5005-201b-4e6e-a8ff-b357fa192a4c" width="200"/>
+  <img src="https://github.com/user-attachments/assets/ae2eb116-2a8f-43db-ac29-3285c6c07d17" width="200"/>
+  <img src="https://github.com/user-attachments/assets/6169f18b-3201-451e-b16f-4f2d214e8f62" width="200"/>
+  <img src="https://github.com/user-attachments/assets/575f72e9-85ed-48a1-b32f-00254cdf233c" width="200"/>
+  <img src="https://github.com/user-attachments/assets/f5d825cb-ea13-46d8-b739-ceb727531ce6" width="200"/>
+  <img src="https://github.com/user-attachments/assets/ac7bfaf9-9981-4e81-bb74-f12da33037f2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/bb2fc7e2-2f19-4eea-af46-b1134e7277b8" width="200"/>
+  <img src="https://github.com/user-attachments/assets/706aeb0f-81d0-488e-a65d-6bd87a65dff2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/4ff1f29b-4706-4c62-be89-4654877a2580" width="200"/>
+  <img src="https://github.com/user-attachments/assets/acd96ce8-78f0-4bf4-97fa-fd5e6447971b" width="200"/>
+  <img src="https://github.com/user-attachments/assets/04f3045a-ea39-4b8e-ae43-2bc9cc4a6d5c" width="200"/>
 </div>
-
