@@ -76,7 +76,6 @@ Developed by [fady elzeeky]
 
 ## 📸 Screenshots
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/6b0b5005-201b-4e6e-a8ff-b357fa192a4c" width="200"/>
   <img src="https://github.com/user-attachments/assets/ae2eb116-2a8f-43db-ac29-3285c6c07d17" width="200"/>
   <img src="https://github.com/user-attachments/assets/6169f18b-3201-451e-b16f-4f2d214e8f62" width="200"/>
   <img src="https://github.com/user-attachments/assets/575f72e9-85ed-48a1-b32f-00254cdf233c" width="200"/>
@@ -86,5 +85,4 @@ Developed by [fady elzeeky]
   <img src="https://github.com/user-attachments/assets/706aeb0f-81d0-488e-a65d-6bd87a65dff2" width="200"/>
   <img src="https://github.com/user-attachments/assets/4ff1f29b-4706-4c62-be89-4654877a2580" width="200"/>
   <img src="https://github.com/user-attachments/assets/acd96ce8-78f0-4bf4-97fa-fd5e6447971b" width="200"/>
-  <img src="https://github.com/user-attachments/assets/04f3045a-ea39-4b8e-ae43-2bc9cc4a6d5c" width="200"/>
 </div>
